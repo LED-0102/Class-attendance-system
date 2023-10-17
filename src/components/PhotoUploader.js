@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './PhotoUploader.css';
+import '../cssfile/PhotoUploader.css';
 
 const PhotoUploader = () => {
     const [selectedFiles, setSelectedFiles] = useState([]);

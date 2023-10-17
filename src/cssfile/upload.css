@@ -1,0 +1,145 @@
+body {
+    background-color: #483EA8;
+    color: #483EA8;
+}
+
+.navbar {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Home{
+    text-decoration: none;
+    color: #483EA8;
+    margin-top: 16px;
+    margin-right: auto;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.About{
+    text-decoration: none;
+    color: #483EA8;
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: 10px;
+    font-size: 20px;
+}
+.container {
+    background-color: #F1F1F1;
+    border: 8px solid #B5B1DC;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    height: 375px;
+    margin: 90px auto 0;
+}
+
+.file-upload-container {
+    background-color: #F1F1F1;
+    border: 2px dashed #483EA8;
+    border-radius: 10px;
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #483EA8;
+    cursor: pointer;
+}
+
+.file-upload-container input {
+    display: none;
+}
+
+.file-upload-label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.file-upload-icon {
+    font-size: 36px;
+}
+
+.date-picker {
+    display: inline-block;
+    margin: 75px;
+}
+
+.date-picker select {
+    border: 1px solid #483EA8;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+    color: #483EA8;
+}
+
+.sidebar {
+    background-color: white;
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: 0.5s;
+    border-radius: 0 10px 10px 0;
+    border: 3px solid #B5B1DC;
+}
+
+.content {
+    margin-left: 0;
+    transition: 0.5s;
+    padding: 20px;
+}
+
+.sidebar.show {
+    left: 0;
+}
+
+.content.show {
+    margin-left: 60px;
+}
+
+.toggle-button {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.date-picker {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    margin-right: 100px;
+}
+
+.date-picker label {
+    background-color: #483EA8;
+    color: white;
+    width: 150px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}

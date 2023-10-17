@@ -1,28 +1,26 @@
-import React, { useState } from 'react';
-import DateSelector from './components/DateSelector';
-import PhotoUploader from './components/PhotoUploader';
-import AttendanceList from './components/AttendanceList';
+import {Routes, Route} from "react-router-dom";
+import Aboutme  from "./pages/about";
+import Class from "./pages/class";
+import Login from "./pages/login";
+import Upload from "./pages/upload";
+import Result from "./pages/displayresult";
+import Myclass from "./pages/myclass";
+
 import './App.css';
 
-const App = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [presentStudents, setPresentStudents] = useState([]);
-  const [absentStudents, setAbsentStudents] = useState([]);
-
-  const handleDateChange = date => {
-    setSelectedDate(date);
-    // Fetch data for the selected date (present and absent students) from the backend API
-    // Update presentStudents and absentStudents state accordingly
-  };
-
+function App() {
   return (
-      <div className="App">
-        <h1>Attendance Taking App</h1>
-        <DateSelector selectedDate={selectedDate} onDateChange={handleDateChange} />
-        <PhotoUploader selectedDate={selectedDate} />
-        <AttendanceList presentStudents={presentStudents} absentStudents={absentStudents} />
-      </div>
+    <>
+    <Routes>
+      <Route path="/class" element={<Class />}></Route>
+      <Route path="/about" element={<Aboutme />}></Route>
+      <Route path="/login" element={<Login />}></Route>
+      <Route path="/upload" element={<Upload />}></Route>
+      <Route path="/myclass" element={<Myclass />}></Route>
+      <Route path="/result" element={<Result />}></Route>
+    </Routes>
+    </>
   );
-};
+}
 
 export default App;

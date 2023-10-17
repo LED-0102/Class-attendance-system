@@ -1,5 +1,5 @@
 import React from 'react';
-import './AttendanceList.css';
+import '../cssfile/AttendanceList.css';
 
 const AttendanceList = ({ presentStudents, absentStudents }) => {
     return (
