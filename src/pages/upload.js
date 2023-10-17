@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from "react";
+import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell} from "@nextui-org/react";
 import axios from "axios"
 import "../cssfile/upload.css"
 import { ChangeEvent, useRef } from "react";
@@ -12,6 +13,28 @@ const LoadingCircle = () => {
     </div>
   );
 };
+function Rendertable({data,name}){
+  if(data.length !== 0){
+    data = data.present
+  }
+  return (
+    <Table aria-label="Example static collection table">
+    <TableHeader>
+      <TableColumn>NAME</TableColumn>
+      <TableColumn>ROLL NUMBER</TableColumn>
+      <TableColumn>ATTENDANCE</TableColumn>
+    </TableHeader>
+    <TableBody>
+    {(data).map((student, index) => (
+          <TableRow  key={index}>
+            <TableCell>{student.name}</TableCell>
+            <TableCell>{student.rollnumber}</TableCell>
+            <TableCell>{student.attendance==1 ? 'Present' : 'Absent'}</TableCell>
+          </TableRow>
+        ))}
+      
+    </TableBody>
+  </Table>)}
 export default function Upload(){
   const [isLoading, setIsLoading] = useState(false);
   const [date,setdate]=useState()
@@ -19,10 +42,15 @@ export default function Upload(){
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [Allpresent,setAllPresent]=useState([]);
   const [selectedFile, setSelectedFile] = useState([]);
+  
+  
 
+
+
+  
   function StagingArea({ data, name }) {
     return (
-      <div className="rounded-md bg-purple-100 max-h-30%">
+      <div className="rounded-md bg-purple-100">
         <div className="flex flex-col gap-2 border-2 sm:gap-2">
           {data.length === 0 ? (
             <p className="text-sm text-zinc-400 ">*Add files to display</p>
@@ -56,8 +84,9 @@ export default function Upload(){
         },
       })
       .then((response) => {
-        console.log(response.data.present)
-        setAllPresent(response.data.present);
+        
+        setAllPresent(response.data);
+        console.log(Allpresent);
         setIsLoading(false);
         
       })
@@ -97,12 +126,14 @@ export default function Upload(){
         </div>
         {isLoading && <LoadingCircle />}
         <div className="container ">
-          <h2>Upload Your Files Here</h2>
-          <div className="file-upload-container h-auto ">
+          
+          <div className="file-upload-container mt-[100px]  h-auto  ">
+          <h2>Upload Your Files Here</h2> 
             <label onClick={() => fileUploader.current.click()} htmlFor="file-input" className="file-upload-label hover:font-bold">
               Click to Upload a File
             </label>
             <input
+              className=""
               accept=".png, .jpg, .jpeg"
               hidden
               type="file"
@@ -121,12 +152,20 @@ export default function Upload(){
               {/* <button  onPress={() => fileUploader.current.click()}></button> */}
             {/* <span className="file-upload-icon">+</span> */}
           </div>
-          <section className="date-picker">
+          <section className="date-picker block">
             <label htmlFor="date-input">Choose a Date:</label>
-            <input value={date} onChange={(e)=>{setdate(e.target.value); console.log(date)}} type="date" id="date-input" />
+            <input value={date} onChange={(e)=>{setdate(e.target.value); console.log(date)}} type="date" id="date-input" className="block" />
           </section>
+          
         </div>
-        <div className={`sidebar ${sidebarVisible ? "show" : ""}`} id="sidebar">
+        <div className="bg-slate-300 mt-2  overflow-y-auto min-h-[350px]">
+          <Rendertable data={Allpresent} name="present"/>
+          </div>
+        
+
+          
+          
+          <div className={`sidebar ${sidebarVisible ? "show" : ""}`} id="sidebar">
           <span className="close-button" onClick={toggleSidebar}>
             ✖
           </span>
@@ -134,8 +173,9 @@ export default function Upload(){
             <label htmlFor="chosen-date">Choose a Date:</label>
             <input type="date" id="chosen-date" />
           </div>
-          
-        </div>
+          </div>
+   
+        
        
       </>
       )

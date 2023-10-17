@@ -10,6 +10,7 @@ import insightface
 import math
 import pickle
 import json
+import pandas as pd
 
 model = insightface.app.FaceAnalysis(name="buffalo_l")
 model.prepare(ctx_id=-1)
@@ -82,7 +83,7 @@ async def create_upload_files(files: List[UploadFile]):
 
         final = []
         for face in faces:
-            max_score=0.35
+            max_score=0.2
             max_roll=0
             for roll in base_embeddings:
                 for e1 in base_embeddings[roll]:
@@ -102,5 +103,24 @@ async def create_upload_files(files: List[UploadFile]):
     output = list(output)
     output.sort()
     # print(output)
-    return {"present": output}
+    z=pd.read_csv("./reference.csv")
+    ispred=[]
+    for l in range(0,len(z)):
+        if str(z["rollnumber"].iloc[l]) in output:
+            # print(str(z["rollnumber"].iloc[l]))
+            ispred.append(1)
+        else:
+           
+            ispred.append(0)
+    # print(ispred)
+    z=pd.DataFrame({"name":z["name"],"rollnumber":z["rollnumber"],"attendance":ispred})
+    data=[]
+    for i in range(0,len(z)):
+        dict={"name": z["name"].iloc[i], "rollnumber": str(z["rollnumber"].iloc[i]), "attendance": ispred[i]}
+        data.append(dict)
+    print(data)
+    # data = {"name": z["name"].tolist(), "rollnumber": z["rollnumber"].tolist(), "attendance": ispred}
+    
+    return {"present":data}
+    # return {"present":output}
     
