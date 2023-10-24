@@ -71,24 +71,22 @@ body {
 }
 
 .slider-container {
-    position: relative;
+    
     border: 5px solid #B5B1DC;
-    border-radius: 5px;
-    margin-top: 50px;
-    margin-right: 50px;
-    margin-bottom: 5px;
+   
+    
     width: 400px;
     height: 500px;
     overflow: hidden;
 }
 
 .slider {
-    white-space: nowrap;
+  
     transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-    display: inline-block;
+    
     width: 400px;
     height: 500px;
 }
@@ -98,24 +96,3 @@ body {
     height: 100%;
 }
 
-.prev-btn, .next-btn {
-    background-color: #483EA8;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    position: absolute;
-    bottom: 5px; 
-    border: 2px solid white;
-}
-
-.prev-btn {
-    left: 0;
-    margin-left: 1030px;
-}
-
-.next-btn {
-    right: 0;
-    margin-right: 75px;
-}

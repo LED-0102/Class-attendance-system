@@ -4,6 +4,8 @@ import axios from "axios"
 import "../cssfile/upload.css"
 import { ChangeEvent, useRef } from "react";
 import { ClipLoader } from 'react-spinners';
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LoadingCircle = () => {
   return (
@@ -36,12 +38,22 @@ function Rendertable({data,name}){
     </TableBody>
   </Table>)}
 export default function Upload(){
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const course = params.get("course");
+  const strength = params.get("strength");
+  const batch = params.get("batch");
+
   const [isLoading, setIsLoading] = useState(false);
   const [date,setdate]=useState()
   const fileUploader = useRef();
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [Allpresent,setAllPresent]=useState([]);
   const [selectedFile, setSelectedFile] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const handleDateChange = (e) => {
+    setSelectedDate(e.target.value);
+  }
   
   
 
@@ -97,6 +109,11 @@ export default function Upload(){
         alert("Enter a date");
       }
     }
+    const getresult=()=>{
+      // write an api request to change the page and get all the data of the class on that date,
+      // if there is no data return alert that no result exists.
+
+    }
 
 
 
@@ -106,29 +123,39 @@ export default function Upload(){
    
     return (<>
        
-        <div className="navbar">
+        <div className="navbar  h-[50px] rounded-none  ">
           
-          <div className="toggle-button" onClick={toggleSidebar}>
+          <div className="toggle-button text-xl hover:text-purple-500 " onClick={toggleSidebar}>
             ☰
           </div>
-          <a className="Home" href="/home">
+          <div className="flex flex-row space-x-20 justify-center mx-auto">
+          <a className="text-xl font-normal hover:text-purple-500" href="/home">
             Home
           </a>
-          <a className="Home" href="/myclass">
+          <a className="text-xl font-normal hover:text-purple-500" href="/myclass">
             myClass
           </a>
-          <a className="About" href="/about">
+          <a className="text-xl font-normal hover:text-purple-500" href="/about">
             About
           </a>
-          <a className="About" href="/result">
+          <a className="text-xl font-normal hover:text-purple-500" href="/result">
             Myresult
           </a>
+          </div>
         </div>
         {isLoading && <LoadingCircle />}
-        <div className="container ">
+        <div className="flex flex-row space-x-[20%]  justify-center  items-center mt-8">
+          <div className="flex flex-col "><div className="font-thin text-white text-center">course</div><div className="text-7xl  border-black text-white   ">{course}</div></div>
+          <div className="flex flex-col "><div className="font-thin text-white text-center">strength</div><div className="text-7xl  border-black text-white  ">{strength}</div></div>
+          <div className="flex flex-col "><div className="font-thin text-white text-center">batch</div><div className="text-7xl  border-black text-white ">{batch}</div></div>
           
-          <div className="file-upload-container mt-[100px]  h-auto  ">
-          <h2>Upload Your Files Here</h2> 
+          
+          
+        </div>
+        <div className="w-[80%] h-screen bg-white border-purple-300 mx-auto rounded-xl border-4 mt-24 flex flex-col  items-center content-center justify-center  ">
+        <h2 className="">Upload Your Files Here</h2>
+          <div className="file-upload-container h-fit    ">
+           
             <label onClick={() => fileUploader.current.click()} htmlFor="file-input" className="file-upload-label hover:font-bold">
               Click to Upload a File
             </label>
@@ -137,10 +164,17 @@ export default function Upload(){
               accept=".png, .jpg, .jpeg"
               hidden
               type="file"
+              multiple 
               ref={fileUploader}
-              onChange={(e) =>
-                setSelectedFile([...selectedFile, e.target.files[0]])
-              }/>
+              onChange={(e) =>{
+                const files = e.target.files;
+                const newSelectedFiles = [];
+                for (let i = 0; i < files.length; i++) {
+                  newSelectedFiles.push(files[i]);
+                }
+
+    setSelectedFile([...selectedFile, ...newSelectedFiles]);
+              }}/>
             <StagingArea data={selectedFile} name="file" />
             
             
@@ -152,8 +186,8 @@ export default function Upload(){
               {/* <button  onPress={() => fileUploader.current.click()}></button> */}
             {/* <span className="file-upload-icon">+</span> */}
           </div>
-          <section className="date-picker block">
-            <label htmlFor="date-input">Choose a Date:</label>
+          <section className="date-picker block ">
+            <label htmlFor="date-input" className="hover:hover:bg-blue-900">Choose a Date:</label>
             <input value={date} onChange={(e)=>{setdate(e.target.value); console.log(date)}} type="date" id="date-input" className="block" />
           </section>
           
@@ -165,13 +199,18 @@ export default function Upload(){
 
           
           
-          <div className={`sidebar ${sidebarVisible ? "show" : ""}`} id="sidebar">
+          <div className={`sidebar rounded-none ${sidebarVisible ? "show" : ""}`} id="sidebar">
           <span className="close-button" onClick={toggleSidebar}>
             ✖
           </span>
-          <div className="date-picker">
-            <label htmlFor="chosen-date">Choose a Date:</label>
-            <input type="date" id="chosen-date" />
+          <div className="date-picker ">
+            <label htmlFor="chosen-date " className="hover:bg-blue-900">Choose a Date:</label>
+            <input type="date" id="chosen-date" onChange={handleDateChange}/>
+            {selectedDate && (
+              <button className="mt-2 hover:bg-purple-900  bg-purple-800 text-white rounded-xl font-medium w-24" onClick={getresult}>
+                Submit
+              </button>
+            )}
           </div>
           </div>
    

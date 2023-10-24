@@ -30,8 +30,8 @@ return (<>
     <div className="info">
       <img className="image" src={img} alt="Image 3" width={100} />
       <div>
-        <h3>220001000</h3>
-        <p>smurf cat</p>
+        <h3>220001024</h3>
+        <p>Darshil Patel</p>
       </div>
     </div>
   </div>
