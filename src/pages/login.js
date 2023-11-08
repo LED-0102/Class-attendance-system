@@ -10,10 +10,10 @@ export default function Login(){
   <title>Login</title>
 <link rel="stylesheet" href="./login.css" />
 <nav className="navMenu">
-  <a href="#">Home</a>
-  <a href="#">Add Class</a>
-  <a href="#">Work</a>
-  <a href="#">About</a>
+  <a href="/home">Home</a>
+  
+  <a href="/about">About</a>
+  
 </nav>
 <div className="form">
   <div className="title">Welcome</div>

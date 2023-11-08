@@ -30,7 +30,7 @@
   }
   
   .navMenu a:hover {
-    color: black;
+    color: rgb(135, 130, 130);
   }
   
   @property --angle {

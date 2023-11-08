@@ -123,23 +123,24 @@ export default function Upload(){
     }
    
     return (<>
-    <div className="navbar w-full absolute top-0 left-0 bg-transparent object-top h-[50px] rounded-none ">
+    <div className="navbar w-full mt-4 absolute top-0 left-0 bg-transparent object-top h-[50px] rounded-none ">
           
-          <div className="toggle-button text-xl text-white hover:text-slate-500 " onClick={toggleSidebar}>
+          
+          <div className="flex flex-row space-x-20 justify-center mx-auto ">
+          <div className="toggle-button align-left text-xl text-white hover:text-slate-500 self-start " onClick={toggleSidebar}>
             ☰
           </div>
-          <div className="flex flex-row space-x-20 justify-center mx-auto">
           <a className="text-xl font-normal text-white hover:text-slate-500 " href="/home">
-            Home
+            HOME
           </a>
           <a className="text-xl font-normal  text-white hover:text-slate-500 " href="/myclass">
-            myClass
+            MYCLASS
           </a>
           <a className="text-xl font-normal text-white  hover:text-slate-500 " href="/about">
-            About
+            ABOUT
           </a>
           <a className="text-xl font-normal text-white  hover:text-slate-500 " href="/result">
-            Myresult
+            MYRESULT
           </a>
           </div>
         </div>
