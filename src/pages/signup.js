@@ -1,27 +1,20 @@
 import React from "react";
-import "../cssfile/login.css"
+import "../cssfile/signup.css"
 
-export default function Login(){
+export default function Signup(){
   return(
       <>
   <div id = "back2">
     <meta charSet="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login</title>
-<link rel="stylesheet" href="./login.css" />
-<nav className="navMenu">
-  <a href="#">Home</a>
-  <a href="#">Add Class</a>
-  <a href="#">Work</a>
-  <a href="#">About</a>
-</nav>
+  <title>signup</title>
 <div className="form">
-  <div className="title">Welcome</div>
+  <div className="title">Sign Up</div>
   <div className="input-container ic1">
-    <input id="course" className="input" type="text" placeholder=" " />
-    <div className="cut cut-long" />
-    <label htmlFor="course" className="placeholder">
-      Course code
+    <input id="name" className="input" type="text" placeholder=" " />
+    <div className="cut cut-short" />
+    <label htmlFor="name" className="placeholder">
+      Name
     </label>
   </div>
   <div className="input-container ic2">
@@ -41,9 +34,9 @@ export default function Login(){
   <button type="text" className="submit">
     submit
   </button>
-  <button type="button" className="signup">
-          <a href="/signup">Sign Up
-  </a>          </button>
+  <button type="button" className="login">
+          <a href="/login">  Log In</a>
+          </button>
 </div>
 </div>
 </>
