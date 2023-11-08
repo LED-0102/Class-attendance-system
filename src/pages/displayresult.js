@@ -85,7 +85,7 @@ export default function Result(){
     <div className="article-card">
       <label htmlFor="chosen-date" className="">Choose a Date: </label>
       <input type="date" id="chosen-date" onChange={handleDateChange} />
-      <button id="buttoner"className="">Display Result</button>
+      <button id="buttoner"className="mt-4">Display Result</button>
     </div>
   </div>
 </div>

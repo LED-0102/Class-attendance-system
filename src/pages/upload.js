@@ -144,7 +144,7 @@ export default function Upload(){
           </a>
           </div>
         </div>
-       <div  className="mt-[50%]">
+       <div  className="mt-[75%]">
         
         {isLoading && <LoadingCircle />}
         <div className="flex flex-row space-x-[20%]  justify-center  items-center mt-8">
@@ -155,7 +155,7 @@ export default function Upload(){
           
           
         </div>
-        <div className="sm:max-w-lg w-full mt-2 h-[660px] mb-24 p-10 bg-white rounded-xl z-10">
+        <div className="mt-4 sm:max-w-lg w-full mt-2 h-[660px] mb-24 p-10 bg-white rounded-xl z-10">
         <h2 className="mt-5 text-3xl text-center font-bold text-gray-900">Upload Your Files Here</h2>
         <form class="mt-8 space-y-3" action="#" method="POST">
           <div className="grid grid-cols-1 space-y-2">
