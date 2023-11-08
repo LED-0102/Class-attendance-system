@@ -93,7 +93,18 @@ export default function Myclass(){
           <td>{row.strength}</td>
           <td className="px-4 py-4 text-left align-middle font-light text-base text-white border-b border-solid border-opacity-10 border-white flex items-center">
             
-          <Link className="flex w-full" to={`/upload?course=${row.course}&batch=${row.batch}&strength=${row.strength}`}><button id="click" onClick={directpage}  className="w-32  add-details hover:bg-blue-200">✚</button></Link>
+          {/* <Link className="flex w-full" to={`/upload?course=${row.course}&batch=${row.batch}&strength=${row.strength}`}>
+            <button id="click" onClick={directpage}  className="w-32  add-details hover:bg-blue-200">
+            <span className="hide-on-mobile">Add Details</span>
+            <span className="show-on-mobile">✚</span>
+            </button>
+            </Link> */}
+          <Link className="flex w-full" to={`/upload?course=${row.course}&batch=${row.batch}&strength=${row.strength}`}>
+               <button id="click" onClick={directpage} className="w-32 add-details hover:bg-blue-200">
+                <span className="hidden sm:block">Add Details</span>
+                  <span className="sm:hidden">✚</span>
+              </button>
+          </Link>
         
           <span  className="text-black text-xl hover:font-bold hover:cursor-pointer mr-10" onClick={()=>deleteclass(row.id)}>
           ✖
