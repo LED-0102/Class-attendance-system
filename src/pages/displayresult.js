@@ -12,7 +12,7 @@ function Rendertable({data,func}){
   }
   return (
     <>
-    <Table
+    <Table id = "tables"
     aria-label="Rows actions table example with dynamic content"
     selectionBehavior={selectionBehavior}
     onRowAction={(key) =>{setpres(23);setname(data[key].name) ;func(data[key].name,23);}}>
@@ -23,7 +23,7 @@ function Rendertable({data,func}){
     </TableHeader>
     <TableBody>
     {(data).map((student, index) => (
-          <TableRow className="hover:bg-slate-100" key={index}>
+          <TableRow className="hover:" key={index}>
             <TableCell > {student.name}</TableCell>
             <TableCell>{student.rollnumber}</TableCell>
             <TableCell>{student.attendance==1 ? 'Present' : 'Absent'}</TableCell>
@@ -67,31 +67,32 @@ export default function Result(){
     
     return (
         <>
-          <div className="navbar  h-[50px] rounded-none  ">
-          <div className="flex flex-row space-x-20 justify-center mx-auto">
-          <a className="text-xl font-normal hover:text-purple-500" href="/home">
-            Home
-          </a>
-          <a className="text-xl font-normal hover:text-purple-500" href="/myclass">
-            myClass
-          </a>
-          <a className="text-xl font-normal hover:text-purple-500" href="/about">
-            About
-          </a>
-          <a className="text-xl font-normal hover:text-purple-500" href="/result">
-            Myresult
-          </a>
-          </div>
-          </div>
-          <div className="flex flex-row border-2 border-slate-300 w-fit h-[40px] items-center bg-white">
-            <label htmlFor="chosen-date " className="  bg-white pr-2 ">Choose a Date: </label>
+    <nav className="navMenu">
+    <a href="/home">Home</a>
+    <a href="/myclass">MyClass</a>
+    <a href="/about">About</a>  
+    <a href="/result">MyResult</a>
+    </nav>
+      {/* <div class="center">
+          <div class="article-card">
+            <label htmlFor="chosen-date " className="">Choose a Date: </label>
             <input type="date" id="chosen-date" onChange={handleDateChange}/>
-            <button className="text-xl pl-4 bg-white hover:bg-slate-300 ">Display Result</button>
-          </div>
+            <button className="">Display Result</button>
+        </div>
+      </div> */}
+<div className="center-container">
+  <div className="center">
+    <div className="article-card">
+      <label htmlFor="chosen-date" className="">Choose a Date: </label>
+      <input type="date" id="chosen-date" onChange={handleDateChange} />
+      <button id="buttoner"className="">Display Result</button>
+    </div>
+  </div>
+</div>
   
   <div className="flex flex-row space-x-4 items-center">
-    <div className="flex flex-col ml-2 mt-2">
-      <div className="flex flex-row bg-white rounded-md border-2 border-purple-300 w-full h-fit p-2 justify-center ">
+    <div className="flex flex-col mt-25">
+      <div id = "flex" className="flex flex-row bg-white rounded-md border-2 border-purple-300 w-full h-fit p-2 justify-center ">
         <div className="flex flex-col items-center w-full border-r-2">
           <p className="font-bold text-xl">DATE</p>
           <div className="text-3xl">{Date}</div>
@@ -113,7 +114,7 @@ export default function Result(){
     </div>
     
     </div>
-    <div className="h-full flex-wrap  w-1/2 flex h-full flex-col items-center content-center ">
+    {/* <div className="h-full flex-wrap  w-1/2 flex h-full flex-col items-center content-center ">
     <div className="slider-container ">
       <div className="slider">
         <div className="slide">
@@ -131,8 +132,9 @@ export default function Result(){
     <button className="text-xl font-bold text-purple bg-slate-400 self-left h-fit rounded-md p-2 hover:bg-slate-500 hover:shadow-lg ">Previous</button>
     <button className="text-xl font-bold text-purple bg-slate-400  h-fit rounded-md p-2 hover:bg-slate-500 hover:shadow-lg">Next</button>
     </div>
-    </div>
+    </div> */}
   </div>
+    
 </>
 
     )

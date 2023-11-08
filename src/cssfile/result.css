@@ -1,20 +1,144 @@
-
-
-/* .navbar {
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;
+.navMenu {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0);
+    padding: 16px 0;
+    z-index: 1;
+  }
+  
+  .navMenu a {
+    color: #f6f4e6;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    margin: 0 20px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navMenu a:hover {
+    color: black
+  }
+
+  .center-container {
+    margin-top: 375px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+  }
+  
+  .center {
+    padding: 20px;
+    width: 350px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    backdrop-filter: blur(15px);
+    box-shadow: 
+    0px 0.5px 1px rgba(255,255,255,0.5), 
+    0px 1px 2px rgba(255,255,255,0.5), 
+    0px 2px 4px rgba(255,255,255,0.5), 
+    0px 4px 8px rgba(255,255,255,0.5);
+  }
+
+  .center:hover{
+    box-shadow: 0px 1px 2px rgba(255,255,255,0.7), 
+    0px 2px 4px rgba(255,255,255,0.7), 
+    0px 4px 8px rgba(255,255,255,0.7), 
+    0px 6px 12px rgba(255,255,255,0.7);
+    transition: 0.2s;
+    transform: translateY(-10px);
+  }
+  
+  input[type="date"] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 10px;
+    border: 1px solid black;
+  }
+
+#buttoner {
+  align-items: center;
+  background-color: #fff;
+  box-sizing: border-box;
+  border: 1px solid black;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  border-radius: 5px;
+}
+#buttoner:hover{
+    background-color: #303245;
+    color: white;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #483EA8;
-    margin: 0 10px;
+#flex{
+    box-shadow: 
+    0px 0.5px 1px rgba(255,255,255,0.5), 
+    0px 1px 2px rgba(255,255,255,0.5), 
+    0px 2px 4px rgba(255,255,255,0.5), 
+    0px 4px 8px rgba(255,255,255,0.5);
+}
+
+#flex:hover{
+    box-shadow: 0px 1px 2px rgba(255,255,255,0.7), 
+    0px 2px 4px rgba(255,255,255,0.7), 
+    0px 4px 8px rgba(255,255,255,0.7), 
+    0px 6px 12px rgba(255,255,255,0.7);
+    transition: 0.2s;
+    transform: translateY(-10px);
+}
+
+/* .button:focus {
+  color: #171e29;
+}
+
+.button:hover {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+.button:active {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+@media (min-width: 768px) {
+  .button {
+    min-width: 170px;
+  }
 } */
 
-.result {
+  
+/* .result {
     margin-top: 20px;
     text-align: center;
     font-size: 24px;
@@ -31,9 +155,10 @@
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
-}
+}*/
 
 .styled-table {
+    
     border-spacing: 0;
     border-collapse: separate;
     border-radius: 10px;
@@ -41,11 +166,13 @@
     font-family: sans-serif;
     width: 700px;
     height: 500px;
-    background-color: white;
-    border: 5px solid #B5B1DC;
+    background-color: #303245;
     overflow: auto;
-    margin-top: 50px;
-    margin-left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .styled-table th,
@@ -60,10 +187,12 @@
 }
 
 .styled-table thead tr {
-    background-color: #817ac4;
-    color: #ffffff;
+    background-color: white;
+    color: black;
     text-align: left;
 }
+/*
+
 
 .slider-container {
     
@@ -89,5 +218,8 @@
 .slide img {
     width: 100%;
     height: 100%;
-}
+} */
 
+
+
+  
