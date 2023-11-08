@@ -9,9 +9,10 @@ function Aboutme() {
     <div id="back1">
     <nav className="navMenu">
     <a href="/home">Home</a>
+    <a href="/myclass">MyClass</a>
       <a href="/about">About</a>
-      <a href="/myclass">myClass</a>
-      <a href="/result">Result</a>
+      
+      <a href="/result">MyResult</a>
     </nav>
     <section class="articles">
     <article>

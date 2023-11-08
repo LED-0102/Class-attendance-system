@@ -68,8 +68,8 @@ export default function Myclass(){
           </div> */}
     <nav className="navMenu">
     <a href="/home">Home</a>
+    <a href="/myclass">myClass</a>
       <a href="/about">About</a>
-      <a href="/myclass">myClass</a>
       <a href="/result">Result</a>
     </nav>
   <div id="tbl-content" className="">

@@ -19,6 +19,7 @@ function App() {
       <Route path="/myclass" element={<Myclass />}></Route>
       <Route path="/result" element={<Result />}></Route>
       <Route path="/test" element={<Test />}></Route>
+      <Route path="/home" element={<Login />}></Route>
     </Routes>
     </>
   );
