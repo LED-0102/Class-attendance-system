@@ -62,7 +62,8 @@ export default function Upload(){
   
   function StagingArea({ data, name }) {
     return (
-      <div className="rounded-md bg-purple-100">
+
+      <div  className="rounded-md bg-purple-100">
         <div className="flex flex-col gap-2 border-2 sm:gap-2">
           {data.length === 0 ? (
             <p className="text-sm text-zinc-400 ">*Add files to display</p>
@@ -122,27 +123,28 @@ export default function Upload(){
     }
    
     return (<>
-       
-        <div className="navbar  h-[50px] rounded-none  ">
+    <div className="navbar w-full absolute top-0 left-0 bg-transparent object-top h-[50px] rounded-none ">
           
-          <div className="toggle-button text-xl hover:text-purple-500 " onClick={toggleSidebar}>
+          <div className="toggle-button text-xl text-white hover:text-slate-500 " onClick={toggleSidebar}>
             ☰
           </div>
           <div className="flex flex-row space-x-20 justify-center mx-auto">
-          <a className="text-xl font-normal hover:text-purple-500" href="/home">
+          <a className="text-xl font-normal text-white hover:text-slate-500 " href="/home">
             Home
           </a>
-          <a className="text-xl font-normal hover:text-purple-500" href="/myclass">
+          <a className="text-xl font-normal  text-white hover:text-slate-500 " href="/myclass">
             myClass
           </a>
-          <a className="text-xl font-normal hover:text-purple-500" href="/about">
+          <a className="text-xl font-normal text-white  hover:text-slate-500 " href="/about">
             About
           </a>
-          <a className="text-xl font-normal hover:text-purple-500" href="/result">
+          <a className="text-xl font-normal text-white  hover:text-slate-500 " href="/result">
             Myresult
           </a>
           </div>
         </div>
+       <div  className="mt-[50%]">
+        
         {isLoading && <LoadingCircle />}
         <div className="flex flex-row space-x-[20%]  justify-center  items-center mt-8">
           <div className="flex flex-col "><div className="font-thin text-white text-center">course</div><div className="text-7xl  border-black text-white   ">{course}</div></div>
@@ -152,15 +154,20 @@ export default function Upload(){
           
           
         </div>
-        <div className="w-[80%] h-screen bg-white border-purple-300 mx-auto rounded-xl border-4 mt-24 flex flex-col  items-center content-center justify-center  ">
-        <h2 className="">Upload Your Files Here</h2>
-          <div className="file-upload-container h-fit    ">
-           
-            <label onClick={() => fileUploader.current.click()} htmlFor="file-input" className="file-upload-label hover:font-bold">
+        <div className="sm:max-w-lg w-full mt-2 h-[600px] mb-24 p-10 bg-white rounded-xl z-10">
+        <h2 className="mt-5 text-3xl text-center font-bold text-gray-900">Upload Your Files Here</h2>
+        <form class="mt-8 space-y-3" action="#" method="POST">
+          <div className="grid grid-cols-1 space-y-2">
+            <label onClick={() => fileUploader.current.click()} htmlFor="file-input" className="text-sm font-bold text-gray-500 tracking-wide">
               Click to Upload a File
             </label>
+            <div className="flex items-center justify-center w-full">
+            <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center overflow-y-auto">
+              <div class="h-full w-full text-center flex flex-col items-center justify-center items-center  ">
+                            <p class="pointer-none text-gray-500 "><span class="text-sm">Drag and drop</span> files here <br /> or <a href="" id="" class="text-blue-600 hover:underline">select a file</a> from your computer</p>
+                        </div>
             <input
-              className=""
+              className="overflow-y-auto"
               accept=".png, .jpg, .jpeg"
               hidden
               type="file"
@@ -178,27 +185,31 @@ export default function Upload(){
             <StagingArea data={selectedFile} name="file" />
             
             
-            <button
+           
+              {/* <button  onPress={() => fileUploader.current.click()}></button> */}
+            {/* <span className="file-upload-icon">+</span> */} 
+            </label>
+            </div>
+          </div>
+          <button
               onClick={fileSubmit}
-              className="mt-2 hover:bg-purple-900  bg-purple-800 text-white rounded-xl font-medium w-24">
+              className="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
+                        font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300">
               Submit
             </button>
-              {/* <button  onPress={() => fileUploader.current.click()}></button> */}
-            {/* <span className="file-upload-icon">+</span> */}
-          </div>
-          <section className="date-picker block ">
-            <label htmlFor="date-input" className="hover:hover:bg-blue-900">Choose a Date:</label>
+
+          </form>
+          <section className="date-picker block flex justify-center content-center ">
+            <label htmlFor="date-input" className="hover:hover:bg-blue-900 align-center">Choose a Date:</label>
             <input value={date} onChange={(e)=>{setdate(e.target.value); console.log(date)}} type="date" id="date-input" className="block" />
           </section>
           
         </div>
-        <div className="bg-slate-300 mt-2  overflow-y-auto min-h-[350px]">
+              
+        {/* <div className="bg-slate-300 mt-2  overflow-y-auto min-h-[350px]">
           <Rendertable data={Allpresent} name="present"/>
-          </div>
-        
-
-          
-          
+          </div> */}
+    
           <div className={`sidebar rounded-none ${sidebarVisible ? "show" : ""}`} id="sidebar">
           <span className="close-button" onClick={toggleSidebar}>
             ✖
@@ -211,6 +222,7 @@ export default function Upload(){
                 Submit
               </button>
             )}
+          </div>
           </div>
           </div>
    

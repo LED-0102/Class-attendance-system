@@ -1,11 +1,6 @@
-body {
-    background-color: #483EA8;
-    color: #483EA8;
-    display: flex;
-    flex-direction: column;
-}
 
-.navbar {
+
+/* .navbar {
     background-color: white;
     border-radius: 10px;
     padding: 10px;
@@ -17,7 +12,7 @@ body {
     text-decoration: none;
     color: #483EA8;
     margin: 0 10px;
-}
+} */
 
 .result {
     margin-top: 20px;

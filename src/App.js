@@ -1,6 +1,5 @@
 import {Routes, Route} from "react-router-dom";
 import Aboutme  from "./pages/about";
-
 import Login from "./pages/login";
 import Upload from "./pages/upload";
 import Result from "./pages/displayresult";

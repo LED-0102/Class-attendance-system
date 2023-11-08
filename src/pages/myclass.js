@@ -52,7 +52,7 @@ export default function Myclass(){
     
     return (
         <>
-  <div className=" navbar rounded-none flex flex-row space-x-20 justify-center mx-auto">
+  {/* <div className=" navbar rounded-none flex flex-row space-x-20 justify-center mx-auto">
           <a className="text-xl font-normal hover:text-purple-500" href="/home">
             Home
           </a>
@@ -65,16 +65,22 @@ export default function Myclass(){
           <a className="text-xl font-normal hover:text-purple-500" href="/result">
             Myresult
           </a>
-          </div>
-  <div className="container w-fit ">
-    <table className="styled-table">
+          </div> */}
+    <nav className="navMenu">
+    <a href="/home">Home</a>
+      <a href="/about">About</a>
+      <a href="/myclass">myClass</a>
+      <a href="/result">Result</a>
+    </nav>
+  <div id="tbl-content" className="">
+    <table className="space-x-0">
       
-      <thead>
+      <thead> 
         <tr>
-          <th>Batch</th>
-          <th>Course</th>
-          <th>Strength</th>
-          <th>Actions</th>
+          <th className="px-5 py-4 text-left font-semibold text-xs text-white uppercase">Batch</th>
+          <th className="px-5 py-4 text-left font-semibold text-xs text-white uppercase">Course</th>
+          <th className="px-5 py-4 text-left font-semibold text-xs text-white uppercase">Strength</th>
+          <th className="px-5 py-4 text-left font-semibold text-xs text-white uppercase">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -85,11 +91,11 @@ export default function Myclass(){
           <td>{row.batch}</td>
           <td>{row.course}</td>
           <td>{row.strength}</td>
-          <td className="flex h-full  flex-row space-x-0  items-center">
+          <td className="px-4 py-4 text-left align-middle font-light text-base text-white border-b border-solid border-opacity-10 border-white flex items-center">
             
-          <Link className="flex w-full" to={`/upload?course=${row.course}&batch=${row.batch}&strength=${row.strength}`}><button onClick={directpage}  className="w-32  add-details hover:bg-blue-200">Add Photos</button></Link>
+          <Link className="flex w-full" to={`/upload?course=${row.course}&batch=${row.batch}&strength=${row.strength}`}><button id="click" onClick={directpage}  className="w-32  add-details hover:bg-blue-200">✚</button></Link>
         
-          <span  className="text-black text-xl hover:font-bold hover:cursor-pointer" onClick={()=>deleteclass(row.id)}>
+          <span  className="text-black text-xl hover:font-bold hover:cursor-pointer mr-10" onClick={()=>deleteclass(row.id)}>
           ✖
           </span>
           </td>
@@ -104,7 +110,7 @@ export default function Myclass(){
   {/* <button className="add-class-button">
     Add Class<span className="plus-sign">+</span>
   </button> */}
-  <button className="add-class-button" onClick={openModal}>
+  <button  className="fixed bottom-5 left-5 md:bottom-10 md:left-10 bg-gray-800 border border-gray-300 text-white p-2 rounded-md" onClick={openModal}>
         Add Class<span className="plus-sign">+</span>
       </button>
       {/* Modal for adding a new class */}

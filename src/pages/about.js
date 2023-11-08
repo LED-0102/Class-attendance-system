@@ -1,42 +1,63 @@
 import React from 'react';
 import "../cssfile/about.css"
 import img from "../images/WhatsApp Image 2023-10-17 at 12.05.57 AM.jpeg"
+
 function Aboutme() {
 
-return (<>
-<>
+  return (<>
+  <>
+    <div id="back1">
+    <nav className="navMenu">
+    <a href="/home">Home</a>
+      <a href="/about">About</a>
+      <a href="/myclass">myClass</a>
+      <a href="/result">Result</a>
+    </nav>
+    <section class="articles">
+    <article>
+      <div class="article-wrapper">
+        <figure>
+          <img src="https://picsum.photos/id/1011/800/450" alt="" />
+        </figure>
+        <div class="article-body">
+          <h2>Aadish Jain</h2>
+          <p>
+            220001001
+          </p>
+        </div>
+      </div>
+    </article>
+    <article>
+      <div class="article-wrapper">
+        <figure>
+          <img src="https://picsum.photos/id/1005/800/450" alt="" />
+        </figure>
+        <div class="article-body">
+          <h2>Abhinav Gangil</h2>
+          <p>
+            220001002
+          </p>
+        </div>
+      </div>
+    </article>
+    <article>
   
-  <div className="navbar">
-  <a href="/home">Home</a>
-    <a href="/about">About</a>
-    <a href="/myclass">myClass</a>
-    <a href="/result">Result</a>
-  </div>
-  <div className="info-box">
-    <div className="info">
-      <img className="image" src={img} alt="Image 1" width={100} />
-      <div>
-        <h3>220001001</h3>
-        <p>Aadish Jain</p>
+      <div class="article-wrapper">
+        <figure>
+          <img src="https://picsum.photos/id/103/800/450" alt="" />
+        </figure>
+        <div class="article-body">
+          <h2>Darshil Patel</h2>
+          <p>
+            220001014
+          </p>
+        </div>
       </div>
-    </div>
-    <div className="info">
-      <img className="image" src={img} alt="Image 2" width={100} />
-      <div>
-        <h3>220001002</h3>
-        <p>Abhinav gangil</p>
-      </div>
-    </div>
-    <div className="info">
-      <img className="image" src={img} alt="Image 3" width={100} />
-      <div>
-        <h3>220001024</h3>
-        <p>Darshil Patel</p>
-      </div>
-    </div>
-  </div>
-</>
-
-</>)}
-
-export default Aboutme;
+    </article>
+  </section></div>
+  </>
+  
+  </>)}
+  
+  export default Aboutme;
+  
