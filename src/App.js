@@ -20,11 +20,8 @@ function App() {
       <Route path="/myclass" element={<Myclass />}></Route>
       <Route path="/result" element={<Result />}></Route>
       <Route path="/test" element={<Test />}></Route>
-<<<<<<< HEAD
       <Route path="/signup" element={<Signup/>}></Route>
-=======
       <Route path="/home" element={<Login />}></Route>
->>>>>>> 9e6ba7b529383a9a0ac272008c204b8b0469416f
     </Routes>
     </>
   );
