@@ -3,9 +3,10 @@ import { Modal, Input, Button } from "@nextui-org/react";
 import { useState } from "react";
 
 export default function Addstudent() {
+
   const [data, setdata] = useState([
-    { student: "student", rollnumber: 1001 },
-    { student: "student2", rollnumber: 1002 },
+    {id:1, student: "student", rollnumber: 1001 },
+    {id:2, student: "student2", rollnumber: 1002 },
   ]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -98,6 +99,7 @@ export default function Addstudent() {
                 className="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
                               font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300"
               >
+                
                 Add Student
               </button>
             </div>
@@ -154,7 +156,7 @@ export default function Addstudent() {
                     <tbody>
                       {data.map((row) => {
                         return (
-                          <tr key={row.id}>
+                          <tr key={row.id}>{console.log(row)}
                             <td className="text-gray-900">{row.student}</td>
                             <td className="text-gray-900">
                               {row.rollnumber}
