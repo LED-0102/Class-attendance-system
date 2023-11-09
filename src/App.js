@@ -5,12 +5,9 @@ import Upload from "./pages/upload";
 import Result from "./pages/displayresult";
 import Myclass from "./pages/myclass";
 import Test from "./pages/test";
-<<<<<<< HEAD
 import Signup  from "./pages/signup";
 import AddStudent from "./pages/addstudent";
-=======
 import Register from "./pages/signup";
->>>>>>> b448f82b46e130e5a50aea5549ebfed4d4eb456f
 
 import './App.css';
 

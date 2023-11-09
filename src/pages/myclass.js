@@ -1,19 +1,10 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-import "../cssfile/myclass.css";
-import { Modal, Input, Button } from "@nextui-org/react";
-import { Link } from "react-router-dom";
 
-export default function Myclass() {
-  const [data, setdata] = useState([
-    { id: 1, batch: "A1", course: "cse", strength: 2 },
-    { id: 2, batch: "A2", course: "cse", strength: 2 },
-  ]);
-  console.log("data:", data);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-=======
+import "../cssfile/myclass.css";
+
+
+
 import React, { useEffect, useState } from "react";
-import "../cssfile/myclass.css"
+
 import { Modal, Input, Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
@@ -29,7 +20,6 @@ export default function Myclass(){
     // useEffect(()=>{
     //   axios.post("http://localhost:8080/api/classes",data)
     // })
->>>>>>> b448f82b46e130e5a50aea5549ebfed4d4eb456f
   const [newClass, setNewClass] = useState({
     batch: "",
     course: "",
