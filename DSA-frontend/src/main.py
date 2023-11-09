@@ -1,6 +1,8 @@
+
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
+from sklearn.metrics.pairwise import cosine_similarity
 import logging
 import numpy as np
 import cv2
@@ -15,19 +17,19 @@ import pandas as pd
 model = insightface.app.FaceAnalysis(name="buffalo_l")
 model.prepare(ctx_id=-1)
 
-from sklearn.metrics.pairwise import cosine_similarity
-def compare(address1,address2):
+
+def compare(address1, address2):
     img1 = cv2.imread(address1)
     img2 = cv2.imread(address2)
     e1 = model.get(img1)[0]['embedding']
     e1 = e1/np.linalg.norm(e1)
     e2 = model.get(img2)[0]['embedding']
-    e2 = e2/np.linalg.norm(e2) 
+    e2 = e2/np.linalg.norm(e2)
     return cosine_similarity([e1], [e2])[0][0]
 
-def compareEmbedding(e1,e2):
+def compareEmbedding(e1, e2):
     e1 = e1/np.linalg.norm(e1)
-    e2 = e2/np.linalg.norm(e2) 
+    e2 = e2/np.linalg.norm(e2)
     return cosine_similarity([e1], [e2])[0][0]
 
 def draw_bounding_boxes(image, coordinates):
@@ -42,18 +44,18 @@ logging.basicConfig(
     level=logging.DEBUG,  # You can adjust the log level as needed (e.g., INFO, WARNING, ERROR)
     filename='fastapi.log',  # Log to a file
     filemode='a',  # Append to the log file
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(namadfilese)s - %(levelname)s - %(message)s'
 )
 
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000"
+    "http://localhost:3000", "http://localhost:8080"
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -65,21 +67,24 @@ async def root():
 
 @app.post("/uploadfiles")
 async def create_upload_files(files: List[UploadFile]):
+    print("Getting hre")
     with open("./attendance_embeddings_normed.pkl", 'rb') as file:
         base_embeddings = pickle.load(file)
 
     output = set()
+    print("Again")
     for file in files:
+        print("-1")
         photo = await file.read()
         nparr = np.fromstring(photo, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-        
+
         faces = model.get(img)
-        # print(faces)
-        # img = draw_bounding_boxes(img, faces)
-        # img = Image.fromarray(img)
-        # print("hi")
-        # img.save("./image.png")
+            # print(faces)
+            # img = draw_bounding_boxes(img, faces)
+            # img = Image.fromarray(img)
+            # print("hi")
+            # img.save("./image.png")
 
         final = []
         for face in faces:
@@ -92,10 +97,10 @@ async def create_upload_files(files: List[UploadFile]):
                         max_score = score
                         max_roll = roll
 
-            if(max_roll!=0):
+            if max_roll!=0:
                 final.append(max_roll)
-        
-        
+
+
         final = set(final)
         # print(file.filename, ":")
         # print(final)
@@ -110,7 +115,7 @@ async def create_upload_files(files: List[UploadFile]):
             # print(str(z["rollnumber"].iloc[l]))
             ispred.append(1)
         else:
-           
+
             ispred.append(0)
     # print(ispred)
     z=pd.DataFrame({"name":z["name"],"rollnumber":z["rollnumber"],"attendance":ispred})
@@ -119,8 +124,8 @@ async def create_upload_files(files: List[UploadFile]):
         dict={"name": z["name"].iloc[i], "rollnumber": str(z["rollnumber"].iloc[i]), "attendance": ispred[i]}
         data.append(dict)
     print(data)
+    response_data = json.dumps(data)
     # data = {"name": z["name"].tolist(), "rollnumber": z["rollnumber"].tolist(), "attendance": ispred}
-    
-    return {"present":data}
+
+    return response_data
     # return {"present":output}
-    
