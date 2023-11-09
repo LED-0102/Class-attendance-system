@@ -123,7 +123,12 @@ export default function Myclass(){
                       onClick={directpage}
                       className="flex w-32 add-details hover:bg-blue-200"
                     >
+                      <Link
+                      className="flex w-full"
+                      to={`/addstudent?course=${row.course}`}
+                    >
                       <span className="hidden sm:block">Add Student</span>
+                      </Link>
                       <span className="sm:hidden">✚</span>
                     </button>
                     </div></div>
