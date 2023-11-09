@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 const LoadingCircle = () => {
   return (
-    <div className="flex justify-center text-white bg-black rounded-xl w-48 position-absolute   items-center t-0 l-0">
+    <div className="flex justify-center text-white bg-black rounded-xl w-48 position-absolute items-center t-0 l-0">
       loading..
       <div className="border-t-4 border-blue-500 border-solid rounded-full w-8 h-8 animate-spin" />
     </div>
@@ -160,100 +160,113 @@ export default function Upload() {
           </a>
         </div>
       </div>
-      <div className="mt-[75%]">
-        {isLoading && <LoadingCircle />}
-        <div className="flex flex-row space-x-[20%]  justify-center  items-center mt-8">
-          <div className="flex flex-col ">
-            <div className="font-thin text-white text-center">course</div>
-            <div className="text-7xl  border-black text-white   ">{course}</div>
-          </div>
-          <div className="flex flex-col ">
-            <div className="font-thin text-white text-center">strength</div>
-            <div className="text-7xl  border-black text-white  ">
-              {strength}
-            </div>
-          </div>
-          <div className="flex flex-col ">
-            <div className="font-thin text-white text-center">batch</div>
-            <div className="text-7xl  border-black text-white ">{batch}</div>
-          </div>
+      <div className="mt-[90%]">
+      {isLoading && <LoadingCircle />}
+      <div className="flex flex-row space-x-[20%]  justify-center  items-center bg-white rounded-md pt-2 pb-2 ">
+        <div className="flex flex-col ">
+          <div className="font-thin text-black text-center">course</div>
+          <div className="text-7xl border-black text-gray-800 pt-2">{course}</div>
         </div>
-        <div className="mt-4 sm:max-w-lg w-full mt-2 h-[660px] mb-24 p-10 bg-white rounded-xl z-10 custom-box-shadow-upload">
-          <h2 className="mt-5 text-3xl text-center font-bold text-gray-900">
-            Upload Your Files Here
-          </h2>
-          <form class="mt-8 space-y-3" action="#" method="POST">
-            <div className="grid grid-cols-1 space-y-2">
-              <label
-                onClick={() => fileUploader.current.click()}
-                htmlFor="file-input"
-                className="text-sm font-bold text-gray-500 tracking-wide"
-              >
-                Click to Upload a File
-              </label>
-              <div className="flex items-center justify-center w-full">
-                <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center overflow-y-auto">
-                  <div class="h-full w-full text-center flex flex-col items-center justify-center items-center  ">
-                    <p class="pointer-none text-gray-500 ">
-                      <span class="text-sm">Drag and drop</span> files here{" "}
-                      <br /> or{" "}
-                      <a href="" id="" class="text-blue-600 hover:underline">
-                        select a file
-                      </a>{" "}
-                      from your computer
-                    </p>
+        <div className="flex flex-col ">
+          <div className="font-thin text-black text-center">strength</div>
+          <div className="text-7xl  border-black text-gray-800 pt-2">{strength}</div>
+        </div>
+        <div className="flex flex-col ">
+          <div className="font-thin text-black text-center">batch</div>
+          <div className="text-7xl  border-black text-gray-800 pt-2">{batch}</div>
+        </div>
+      </div>
+
+      
+        <div className="relative min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative items-center">
+          <div className="absolute inset-0 z-0" />
+          <div className="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10">
+            <div className="text-center">
+              <h2 className="mt-5 text-3xl text-center font-bold text-gray-900">
+                Upload Your Files Here
+              </h2>
+              <form class="mt-8 space-y-3" action="#" method="POST">
+                <div className="grid grid-cols-1 space-y-2">
+                  <label
+                    onClick={() => fileUploader.current.click()}
+                    htmlFor="file-input"
+                    className="text-sm font-bold text-gray-500 tracking-wide"
+                  >
+                    Click to Upload a File
+                  </label>
+                  <div className="flex items-center justify-center w-full">
+                    <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center overflow-y-auto">
+                      <div class="h-full w-full text-center flex flex-col items-center justify-center items-center  ">
+                        <p class="pointer-none text-gray-500 ">
+                          <span class="text-sm">Drag and drop</span> files here{" "}
+                          <br /> or{" "}
+                          <a
+                            href=""
+                            id=""
+                            class="text-blue-600 hover:underline"
+                          >
+                            select a file
+                          </a>{" "}
+                          from your computer
+                        </p>
+                      </div>
+                      <input
+                        className="overflow-y-auto"
+                        accept=".png, .jpg, .jpeg"
+                        hidden
+                        type="file"
+                        multiple
+                        ref={fileUploader}
+                        onChange={(e) => {
+                          const files = e.target.files;
+                          const newSelectedFiles = [];
+                          for (let i = 0; i < files.length; i++) {
+                            newSelectedFiles.push(files[i]);
+                          }
+
+                          setSelectedFile([
+                            ...selectedFile,
+                            ...newSelectedFiles,
+                          ]);
+                        }}
+                      />
+                      <StagingArea data={selectedFile} name="file" />
+
+                      {/* <button  onPress={() => fileUploader.current.click()}></button> */}
+                      {/* <span className="file-upload-icon">+</span> */}
+                    </label>
                   </div>
-                  <input
-                    className="overflow-y-auto"
-                    accept=".png, .jpg, .jpeg"
-                    hidden
-                    type="file"
-                    multiple
-                    ref={fileUploader}
-                    onChange={(e) => {
-                      const files = e.target.files;
-                      const newSelectedFiles = [];
-                      for (let i = 0; i < files.length; i++) {
-                        newSelectedFiles.push(files[i]);
-                      }
-
-                      setSelectedFile([...selectedFile, ...newSelectedFiles]);
-                    }}
-                  />
-                  <StagingArea data={selectedFile} name="file" />
-
-                  {/* <button  onPress={() => fileUploader.current.click()}></button> */}
-                  {/* <span className="file-upload-icon">+</span> */}
-                </label>
-              </div>
-            </div>
-            <button
-              onClick={fileSubmit}
-              className="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
+                </div>
+                <button
+                  onClick={fileSubmit}
+                  className="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
                         font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300"
-            >
-              Submit
-            </button>
-          </form>
-          <section className="date-picker block flex justify-center content-center ">
-            <label
-              htmlFor="date-input"
-              className="hover:hover:bg-blue-900 align-center"
-            >
-              Choose a Date:
-            </label>
-            <input
-              value={date}
-              onChange={(e) => {
-                setdate(e.target.value);
-                console.log(date);
-              }}
-              type="date"
-              id="date-input"
-              className="block"
-            />
-          </section>
+                >
+                  Submit
+                </button>
+              </form>
+              <section className="date-picker block flex justify-center content-center ">
+                <label
+                  htmlFor="date-input"
+                  className="hover:hover:bg-blue-900 align-center"
+                >
+                  Choose a Date:
+                </label>
+                <input
+                  value={date}
+                  onChange={(e) => {
+                    setdate(e.target.value);
+                    console.log(date);
+                  }}
+                  type="date"
+                  id="date-input"
+                  className="block"
+                />
+              </section>
+            </div>
+          </div>
         </div>
+        {/* */}
 
         {/* <div className="bg-slate-300 mt-2  overflow-y-auto min-h-[350px]">
           <Rendertable data={Allpresent} name="present"/>
