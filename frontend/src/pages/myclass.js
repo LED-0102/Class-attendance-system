@@ -125,7 +125,7 @@ export default function Myclass(){
                     >
                       <Link
                       className="flex w-full"
-                      to={`/addstudent?course=${row.course}}`}
+                      to={`/addstudent?course=${row.course}`}
                     >
                       <span className="hidden sm:block">Add Student</span>
                       </Link>
