@@ -1,6 +1,8 @@
 import React from "react";
 import "../cssfile/about.css";
-import img from "../images/WhatsApp Image 2023-10-17 at 12.05.57 AM.jpeg";
+import darshil from "../images/WhatsApp Image 2023-11-09 at 10.45.58 PM.jpeg"
+import aadish  from "../images/Screenshot 2023-11-02 233803.png"
+import abhinav from "../images/Screenshot 2023-11-02 233734.png"
 
 function Aboutme() {
   return (
@@ -17,7 +19,7 @@ function Aboutme() {
             <article>
               <div class="article-wrapper">
                 <figure>
-                  <img src="https://picsum.photos/id/1011/800/450" alt="" />
+                  <img src={aadish} alt="" />
                 </figure>
                 <div class="article-body">
                   <h2>Aadish Jain</h2>
@@ -28,7 +30,7 @@ function Aboutme() {
             <article>
               <div class="article-wrapper">
                 <figure>
-                  <img src="https://picsum.photos/id/1005/800/450" alt="" />
+                  <img src={abhinav} alt="" />
                 </figure>
                 <div class="article-body">
                   <h2>Abhinav Gangil</h2>
@@ -39,7 +41,7 @@ function Aboutme() {
             <article>
               <div class="article-wrapper">
                 <figure>
-                  <img src="https://picsum.photos/id/103/800/450" alt="" />
+                  <img src={darshil} alt="" />
                 </figure>
                 <div class="article-body">
                   <h2>Darshil Patel</h2>

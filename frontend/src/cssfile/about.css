@@ -104,11 +104,12 @@ figure {
 }
 
 article img {
-  max-width: 100%;
+  display: block; 
+  margin: 0 auto;
+  max-width: 60%;
   transform-origin: center;
   transform: scale(var(--img-scale));
   transition: transform 0.4s ease-in-out;
-  
 }
 
 .article-body {
@@ -143,7 +144,7 @@ article:has(:hover, :focus) {
 
 .articles {
   display: grid;
-  max-width: 1200px;
+  max-width: 1300px;
   margin-inline: auto;
   padding-inline: 24px;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
