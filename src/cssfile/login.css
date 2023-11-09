@@ -143,11 +143,7 @@
     transition: transform 200ms;
     width: 69px;
   }
-  
-  .cut-short {
-    width: 50px;
-  }
-  
+    
   .cut-long {
     width: 80px;
   }
