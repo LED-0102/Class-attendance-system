@@ -5,7 +5,7 @@ import Upload from "./pages/upload";
 import Result from "./pages/displayresult";
 import Myclass from "./pages/myclass";
 import Test from "./pages/test";
-import Signup  from "./pages/signup";
+import Register from "./pages/signup";
 
 import './App.css';
 
@@ -20,7 +20,7 @@ function App() {
       <Route path="/myclass" element={<Myclass />}></Route>
       <Route path="/result" element={<Result />}></Route>
       <Route path="/test" element={<Test />}></Route>
-      <Route path="/signup" element={<Signup/>}></Route>
+      <Route path="/signup" element={<Register/>}></Route>
       <Route path="/home" element={<Login />}></Route>
     </Routes>
     </>
