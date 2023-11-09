@@ -1,26 +1,8 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-import "../cssfile/myclass.css";
-import { Modal, Input, Button } from "@nextui-org/react";
-import { Link } from "react-router-dom";
-
-export default function Myclass() {
-  const [data, setdata] = useState([
-    { id: 1, batch: "A1", course: "cse", strength: 2 },
-    { id: 2, batch: "A2", course: "cse", strength: 2 },
-  ]);
-  console.log("data:", data);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-=======
-import React, { useEffect, useState } from "react";
 import "../cssfile/myclass.css"
 import { Modal, Input, Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-
-
-
-  
 export default function Myclass(){
    
     const [data,setdata]=useState([{id:1,batch:"A1",course:"cse",strength:2},{id:2,batch:"A2",course:"cse",strength:2}]);
@@ -29,7 +11,6 @@ export default function Myclass(){
     // useEffect(()=>{
     //   axios.post("http://localhost:8080/api/classes",data)
     // })
->>>>>>> b448f82b46e130e5a50aea5549ebfed4d4eb456f
   const [newClass, setNewClass] = useState({
     batch: "",
     course: "",
@@ -162,9 +143,9 @@ export default function Myclass(){
       {/* Modal for adding a new class */}
       {isModalOpen && (
         <div className="fixed z-10 inset-0 overflow-y-auto">
-          <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+          <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 " >
             <div className="fixed inset-0 transition-opacity">
-              <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+              <div className="absolute inset-0 bg-white opacity-20"></div>
             </div>
             <span
               className="hidden sm:inline-block sm:align-middle sm:h-screen"
@@ -173,13 +154,13 @@ export default function Myclass(){
               &#8203;
             </span>
             <div
-              className="inline-block align-bottom rounded-lg text-left overflow-hidden transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full custom-box-shadow"
+              className="inline-block align-bottom rounded-lg text-left overflow-hidden transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
               role="dialog"
               aria-modal="true"
               aria-labelledby="modal-headline"
             >
               <form onSubmit={handleSubmit}>
-                <div className="bg-gray-300 px-4 pt-5 pb-4 sm:p-6 sm:pb-4 ">
+                <div className="bg-[#888c9d] px-4 pt-5 pb-4 sm:p-6 sm:pb-4 ">
                   <h2
                     className="text-xl leading-6 font-semibold text-gray-900 mb-6"
                     id="modal-headline"
@@ -189,10 +170,10 @@ export default function Myclass(){
                   <div className="mt-2">
                     <div>
                       <label
-                        className="block text-sm font-medium text-gray-700"
+                        className="block text-s font-semibold text-gray-800"
                         htmlFor="batch"
                       >
-                        Batch
+                        Batch:
                       </label>
                       <input
                         type="text"
@@ -206,10 +187,10 @@ export default function Myclass(){
                     </div>
                     <div className="mt-2">
                       <label
-                        className="block text-sm font-medium text-gray-700"
+                        className="block text-s font-semibold text-gray-800"
                         htmlFor="course"
                       >
-                        Course
+                        Course:
                       </label>
                       <input
                         type="text"
@@ -223,10 +204,10 @@ export default function Myclass(){
                     </div>
                     <div className="mt-2">
                       <label
-                        className="block text-sm font-medium text-gray-700"
+                        className="block text-s font-semibold text-gray-800"
                         htmlFor="strength"
                       >
-                        Strength
+                        Strength:
                       </label>
                       <input
                         type="number"
