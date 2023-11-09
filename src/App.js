@@ -6,6 +6,7 @@ import Result from "./pages/displayresult";
 import Myclass from "./pages/myclass";
 import Test from "./pages/test";
 import Signup  from "./pages/signup";
+import AddStudent from "./pages/addstudent";
 
 import './App.css';
 
@@ -19,9 +20,11 @@ function App() {
       <Route path="/upload" element={<Upload />}></Route>
       <Route path="/myclass" element={<Myclass />}></Route>
       <Route path="/result" element={<Result />}></Route>
+      <Route path="/addstudent" element={<AddStudent />}></Route>
       <Route path="/test" element={<Test />}></Route>
       <Route path="/signup" element={<Signup/>}></Route>
       <Route path="/home" element={<Login />}></Route>
+      
     </Routes>
     </>
   );

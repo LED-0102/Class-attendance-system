@@ -167,3 +167,11 @@ body{
     align-items: center;
     margin-bottom: 10px;
      margin-top: 10px; }
+
+ .custom-box-shadow-upload {
+    box-shadow: 
+      0px 1px 2px rgba(255, 255, 255, 0.5), 
+      0px 2px 4px rgba(255, 255, 255, 0.5), 
+      0px 4px 8px rgba(255, 255, 255, 0.5), 
+      0px 8px 16px rgba(255, 255, 255, 0.5);
+  }
