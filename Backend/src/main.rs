@@ -17,7 +17,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(Cors::default().allow_any_origin().allow_any_method().allow_any_header())
             .wrap_fn(|req, srv| {
-                println!("Hi boi got it {} {}", req.method(), req.uri());
+                println!("{} {}", req.method(), req.uri());
                 let future = srv.call(req);
                 async {
                     let result = future.await?;
