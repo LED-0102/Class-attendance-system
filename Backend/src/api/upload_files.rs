@@ -16,14 +16,11 @@ struct Student {
     attendance: i32,
 }
 pub async fn upload_handler(mut images: Multipart, token: JwToken, req: HttpRequest) -> Result<HttpResponse, actix_web::Error> {
-    println!("1");
     let client =Client::builder().build().unwrap();
-    println!("2");
     println!("Request {:?}",  req.headers().get("date").unwrap());
     let date: String = req.headers().get("date").unwrap().to_str().unwrap().to_string();
     let classname: String = req.headers().get("classname").unwrap().to_str().unwrap().to_string();
     let user_name = token.username;
-    println!("3");
     let user_directory = format!("images/{}", user_name);
     if !user_directory_exists(&user_directory) {
         create_directory(&user_directory)?;
@@ -47,7 +44,6 @@ pub async fn upload_handler(mut images: Multipart, token: JwToken, req: HttpRequ
             None => {continue;}
             Some(t) => {file_name = t}
         }
-        println!("Hey nice");
         // Create a new file on the server to save the image
         let mut file = File::create(format!("images/{}/{}/{}", user_name, date, file_name))
             .map_err(|_| actix_web::error::ErrorInternalServerError("Error creating file"))?;
